@@ -28,10 +28,10 @@ const getProducts = async (req, res) => {
 };
 
 const getProductDetails = async (req, res) => {
-  const { categoryname, productid } = req.params;
+  const { productid } = req.params;
 
   try {
-    const product = await fetchProductDetails(categoryname, productid);
+    const product = await fetchProductDetails(productid);
     res.json(product);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching product details', error });
@@ -42,3 +42,4 @@ module.exports = {
   getProducts,
   getProductDetails,
 };
+
